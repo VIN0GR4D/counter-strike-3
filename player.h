@@ -5,12 +5,13 @@
 #include <QObject>
 #include <QKeyEvent>
 #include <QGraphicsSceneMouseEvent>
+#include "score.h"
 
 class Player : public QObject, public QGraphicsRectItem {
     Q_OBJECT
 
 public:
-    Player();
+    Player(Score *score);
 
 protected:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
@@ -18,6 +19,9 @@ protected:
 
 public slots:
     void shoot();
+
+private:
+    Score *score;
 };
 
 #endif // PLAYER_H

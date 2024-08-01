@@ -13,13 +13,15 @@ SOURCES += \
     enemy.cpp \
     main.cpp \
     mainwindow.cpp \
-    player.cpp
+    player.cpp \
+    score.cpp
 
 HEADERS += \
     bullet.h \
     enemy.h \
     mainwindow.h \
-    player.h
+    player.h \
+    score.h
 
 FORMS += \
     mainwindow.ui

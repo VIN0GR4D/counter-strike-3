@@ -3,7 +3,7 @@
 #include <QGraphicsScene>
 #include <QList>
 
-Bullet::Bullet() {
+Bullet::Bullet(Score *score) : score(score) {
     setRect(0, 0, 5, 10);
 
     QTimer *timer = new QTimer(this);
@@ -27,6 +27,10 @@ void Bullet::checkCollisions() {
         if (dynamic_cast<Enemy *>(item)) {
             scene()->removeItem(item);
             scene()->removeItem(this);
+
+            // Увеличиваем счет
+            score->increase();
+
             delete item;
             delete this;
             return;

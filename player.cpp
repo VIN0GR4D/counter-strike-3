@@ -4,7 +4,7 @@
 #include <QGraphicsView>
 #include <QKeyEvent>
 
-Player::Player() {
+Player::Player(Score *score) : score(score) {
     setRect(0, 0, 50, 50);
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFlag(QGraphicsItem::ItemIsMovable);
@@ -24,7 +24,7 @@ void Player::mousePressEvent(QGraphicsSceneMouseEvent *event) {
 }
 
 void Player::shoot() {
-    Bullet *bullet = new Bullet();
+    Bullet *bullet = new Bullet(score);
     bullet->setPos(x() + rect().width() / 2 - bullet->rect().width() / 2, y() - bullet->rect().height());
     scene()->addItem(bullet);
 }
